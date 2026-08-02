@@ -1,0 +1,428 @@
+/* ==================================================================
+   Design System - Global Variables
+   منصة القرآن الكريم العالمية
+   ------------------------------------------------------------------
+   هذا الملف هو المصدر الوحيد للحقيقة (Single Source of Truth)
+   لكل قيم التصميم في المشروع بأكمله.
+
+   ممنوع استخدام أي قيمة مباشرة (hardcoded) داخل أي مكون Vue.
+   كل قيمة (لون / ظل / مسافة / نصف قطر ... إلخ) يجب أن تُستدعى
+   من هنا فقط عبر var(--token-name).
+
+   الأقسام:
+     1. Color System        (هذا الملف)
+     2. Typography System   (02-typography-and-radius.ps1)
+     3. Radius System        (02-typography-and-radius.ps1)
+     4. Shadow System        (03-shadows-and-blur.ps1)
+     5. Blur System           (03-shadows-and-blur.ps1)
+     6. Spacing System       (04-spacing-and-breakpoints.ps1)
+     7. Breakpoints System   (04-spacing-and-breakpoints.ps1)
+     8. Motion / Easing      (04-spacing-and-breakpoints.ps1)
+   ================================================================== */
+
+/* ==================================================================
+   1. COLOR SYSTEM
+   ------------------------------------------------------------------
+   يعتمد على مبدأين:
+   - Primitive Colors: قيم اللون الخام (لا تُستخدم مباشرة في المكونات)
+   - Semantic Colors: طبقة المعنى فوق القيم الخام (هذه من نستخدمها فعلياً)
+
+   هذا يسمح بتبديل الثيم (Light/Dark) دون تغيير أي كود في المكونات،
+   لأن المكون يعتمد فقط على var(--color-text-primary) وليس على
+   قيمة اللون نفسها.
+   ================================================================== */
+
+:root {
+  /* ---------- Primitive Palette (Brand) ---------- */
+  --primitive-emerald-50:  #ecfdf5;
+  --primitive-emerald-100: #d1fae5;
+  --primitive-emerald-200: #a7f3d0;
+  --primitive-emerald-300: #6ee7b7;
+  --primitive-emerald-400: #34d399;
+  --primitive-emerald-500: #10b981;
+  --primitive-emerald-600: #059669;
+  --primitive-emerald-700: #047857;
+  --primitive-emerald-800: #065f46;
+  --primitive-emerald-900: #064e3b;
+
+  --primitive-purple-50:  #faf5ff;
+  --primitive-purple-100: #f3e8ff;
+  --primitive-purple-200: #e9d5ff;
+  --primitive-purple-300: #d8b4fe;
+  --primitive-purple-400: #c084fc;
+  --primitive-purple-500: #a855f7;
+  --primitive-purple-600: #9333ea;
+  --primitive-purple-700: #7e22ce;
+  --primitive-purple-800: #6b21a8;
+  --primitive-purple-900: #581c87;
+
+  --primitive-gold-50:  #fffbeb;
+  --primitive-gold-100: #fef3c7;
+  --primitive-gold-200: #fde68a;
+  --primitive-gold-300: #fcd34d;
+  --primitive-gold-400: #fbbf24;
+  --primitive-gold-500: #f59e0b;
+  --primitive-gold-600: #d97706;
+  --primitive-gold-700: #b45309;
+
+  /* ---------- Primitive Neutrals ---------- */
+  --primitive-neutral-0:   #ffffff;
+  --primitive-neutral-50:  #f8fafc;
+  --primitive-neutral-100: #f1f5f9;
+  --primitive-neutral-200: #e2e8f0;
+  --primitive-neutral-300: #cbd5e1;
+  --primitive-neutral-400: #94a3b8;
+  --primitive-neutral-500: #64748b;
+  --primitive-neutral-600: #475569;
+  --primitive-neutral-700: #334155;
+  --primitive-neutral-800: #1e293b;
+  --primitive-neutral-900: #0f172a;
+  --primitive-neutral-950: #020617;
+
+  /* ---------- Primitive Feedback ---------- */
+  --primitive-red-500:   #ef4444;
+  --primitive-red-600:   #dc2626;
+  --primitive-amber-500: #f59e0b;
+  --primitive-blue-500:  #3b82f6;
+  --primitive-green-500: #22c55e;
+
+  /* ================================================================
+     SEMANTIC TOKENS - Light Theme (Default)
+     ================================================================ */
+
+  /* Brand */
+  --color-brand-primary:        var(--primitive-emerald-600);
+  --color-brand-primary-hover:  var(--primitive-emerald-700);
+  --color-brand-secondary:      var(--primitive-purple-600);
+  --color-brand-accent:         var(--primitive-gold-500);
+
+  /* Backgrounds */
+  --color-bg-base:        var(--primitive-neutral-0);
+  --color-bg-elevated:    var(--primitive-neutral-50);
+  --color-bg-sunken:      var(--primitive-neutral-100);
+  --color-bg-inverse:     var(--primitive-neutral-900);
+  --color-bg-overlay:     rgba(15, 23, 42, 0.45);
+
+  /* Glass Surfaces */
+  --color-glass-surface:        rgba(255, 255, 255, 0.55);
+  --color-glass-surface-strong: rgba(255, 255, 255, 0.75);
+  --color-glass-border:         rgba(255, 255, 255, 0.35);
+
+  /* Text */
+  --color-text-primary:    var(--primitive-neutral-900);
+  --color-text-secondary:  var(--primitive-neutral-600);
+  --color-text-tertiary:   var(--primitive-neutral-400);
+  --color-text-inverse:    var(--primitive-neutral-0);
+  --color-text-brand:      var(--color-brand-primary);
+  --color-text-link:       var(--primitive-blue-500);
+
+  /* Borders */
+  --color-border-subtle:  var(--primitive-neutral-200);
+  --color-border-default: var(--primitive-neutral-300);
+  --color-border-strong:  var(--primitive-neutral-400);
+  --color-border-focus:   var(--color-brand-primary);
+
+  /* Feedback */
+  --color-success: var(--primitive-green-500);
+  --color-warning: var(--primitive-amber-500);
+  --color-danger:  var(--primitive-red-500);
+  --color-info:    var(--primitive-blue-500);
+
+  /* Quran-specific semantic tokens */
+  --color-mushaf-page-bg:     #fbf7ee;
+  --color-mushaf-text:        #1c1c1c;
+  --color-ayah-highlight:     rgba(16, 185, 129, 0.15);
+  --color-ayah-playing:       rgba(168, 85, 247, 0.18);
+  --color-progress-track:     var(--primitive-neutral-200);
+  --color-progress-fill:      var(--color-brand-primary);
+}
+
+/* ================================================================
+   SEMANTIC TOKENS - Dark Theme
+   يُفعَّل عبر [data-theme="dark"] على وسم <html>
+   ================================================================ */
+
+:root[data-theme="dark"] {
+  --color-bg-base:        var(--primitive-neutral-950);
+  --color-bg-elevated:    var(--primitive-neutral-900);
+  --color-bg-sunken:      #05070d;
+  --color-bg-inverse:     var(--primitive-neutral-0);
+  --color-bg-overlay:     rgba(0, 0, 0, 0.55);
+
+  --color-glass-surface:        rgba(15, 23, 42, 0.55);
+  --color-glass-surface-strong: rgba(15, 23, 42, 0.75);
+  --color-glass-border:         rgba(255, 255, 255, 0.08);
+
+  --color-text-primary:    var(--primitive-neutral-50);
+  --color-text-secondary:  var(--primitive-neutral-300);
+  --color-text-tertiary:   var(--primitive-neutral-500);
+  --color-text-inverse:    var(--primitive-neutral-900);
+
+  --color-border-subtle:  #1e2536;
+  --color-border-default: #2a3346;
+  --color-border-strong:  #3a4359;
+
+  --color-mushaf-page-bg:     #12141c;
+  --color-mushaf-text:        #ecebe6;
+  --color-ayah-highlight:     rgba(16, 185, 129, 0.22);
+  --color-ayah-playing:       rgba(168, 85, 247, 0.28);
+  --color-progress-track:     #262e42;
+}
+
+
+/* ==================================================================
+   2. TYPOGRAPHY SYSTEM
+   ------------------------------------------------------------------
+   قاعدة أساسية: لا يوجد if(language === 'ar') في أي مكون.
+   كل لغة "تعلن" عن نفسها عبر خاصية --font-family-current، ويُحدَّد
+   ذلك تلقائياً بواسطة composable (useLocale) الذي يضبط
+   data-locale على وسم <html>. كل خط مرتبط بلغته عبر
+   [data-locale="xx"] وتُستدعى المتغيرات دائماً كـ var(--font-family-current).
+
+   الخطوط المختارة (12 لغة):
+     ar (Arabic)     -> Cairo
+     en (English)    -> Inter
+     fr (French)     -> Inter
+     es (Spanish)    -> Inter
+     tr (Turkish)    -> Inter
+     id (Indonesian) -> Inter
+     ms (Malay)      -> Inter
+     ur (Urdu)       -> Noto Nastaliq Urdu
+     fa (Persian)    -> Vazirmatn
+     bn (Bengali)    -> Noto Sans Bengali
+     hi (Hindi)      -> Noto Sans Devanagari
+     zh (Chinese)    -> Noto Sans SC
+
+   ملاحظة: القرآن نفسه (نص المصحف) له خط عثماني مستقل دائماً
+   (--font-family-mushaf) بغض النظر عن لغة الواجهة.
+   ================================================================== */
+
+:root {
+  /* Font Stacks - Primitives */
+  --font-stack-cairo:        'Cairo', system-ui, sans-serif;
+  --font-stack-inter:        'Inter', system-ui, sans-serif;
+  --font-stack-nastaliq:     'Noto Nastaliq Urdu', serif;
+  --font-stack-vazirmatn:    'Vazirmatn', system-ui, sans-serif;
+  --font-stack-bengali:      'Noto Sans Bengali', system-ui, sans-serif;
+  --font-stack-devanagari:   'Noto Sans Devanagari', system-ui, sans-serif;
+  --font-stack-sc:           'Noto Sans SC', system-ui, sans-serif;
+  --font-stack-mushaf:       'Hafs', 'KFGQPC Uthmanic Script HAFS', serif;
+
+  /* Default (fallback) qبل تحميل الـ locale */
+  --font-family-current: var(--font-stack-inter);
+
+  /* Font Sizes - Named Scale (not raw px in components) */
+  --font-size-xs:    0.75rem;   /* 12px */
+  --font-size-sm:    0.875rem;  /* 14px */
+  --font-size-base:  1rem;      /* 16px */
+  --font-size-md:    1.125rem;  /* 18px */
+  --font-size-lg:    1.25rem;   /* 20px */
+  --font-size-xl:    1.5rem;    /* 24px */
+  --font-size-2xl:   1.875rem;  /* 30px */
+  --font-size-3xl:   2.25rem;   /* 36px */
+  --font-size-4xl:   3rem;      /* 48px */
+
+  /* Font Weights */
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* Line Heights */
+  --line-height-tight:  1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  --line-height-mushaf:  2.1;  /* القرآن يحتاج تباعد أكبر بين الأسطر */
+}
+
+/* كل لغة تُفعِّل خطها تلقائياً عبر data-locale على <html> */
+:root[data-locale="ar"] { --font-family-current: var(--font-stack-cairo); }
+:root[data-locale="en"] { --font-family-current: var(--font-stack-inter); }
+:root[data-locale="fr"] { --font-family-current: var(--font-stack-inter); }
+:root[data-locale="es"] { --font-family-current: var(--font-stack-inter); }
+:root[data-locale="tr"] { --font-family-current: var(--font-stack-inter); }
+:root[data-locale="id"] { --font-family-current: var(--font-stack-inter); }
+:root[data-locale="ms"] { --font-family-current: var(--font-stack-inter); }
+:root[data-locale="ur"] { --font-family-current: var(--font-stack-nastaliq); }
+:root[data-locale="fa"] { --font-family-current: var(--font-stack-vazirmatn); }
+:root[data-locale="bn"] { --font-family-current: var(--font-stack-bengali); }
+:root[data-locale="hi"] { --font-family-current: var(--font-stack-devanagari); }
+:root[data-locale="zh"] { --font-family-current: var(--font-stack-sc); }
+
+/* الاتجاه (RTL/LTR) يُدار بنفس الطريقة - عبر data-dir على <html> */
+:root[data-dir="rtl"] { --direction-current: rtl; }
+:root[data-dir="ltr"] { --direction-current: ltr; }
+
+/* ==================================================================
+   3. RADIUS SYSTEM
+   ------------------------------------------------------------------
+   مقياس مسمّى بالكامل - ممنوع استخدام border-radius: 12px مباشرة
+   في أي مكون. كل شيء عبر var(--radius-*).
+   ================================================================== */
+
+:root {
+  --radius-none: 0px;
+  --radius-xs:   0.25rem;  /* 4px  - عناصر صغيرة جداً (badges) */
+  --radius-sm:   0.5rem;   /* 8px  - أزرار صغيرة، حقول إدخال */
+  --radius-md:   0.75rem;  /* 12px - بطاقات صغيرة */
+  --radius-lg:   1rem;     /* 16px - بطاقات قياسية */
+  --radius-xl:   1.5rem;   /* 24px - بطاقات كبيرة، مودالز */
+  --radius-2xl:  2rem;     /* 32px - أقسام رئيسية، Hero cards */
+  --radius-3xl:  2.5rem;   /* 40px - عناصر VisionOS-style الكبيرة */
+  --radius-full: 9999px;   /* دوائر كاملة، أفاتار، pill buttons */
+}
+
+
+/* ==================================================================
+   4. SHADOW SYSTEM
+   ------------------------------------------------------------------
+   ظلال ناعمة متعددة الطبقات (soft, layered shadows) بدلاً من ظل
+   واحد حاد، لإعطاء إحساس Apple-like depth. بالإضافة لظلال خاصة
+   بالـ Glass Morphism.
+   ================================================================== */
+
+:root {
+  /* Elevation Shadows - Light Theme */
+  --shadow-xs:  0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-sm:  0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+  --shadow-md:  0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.05);
+  --shadow-lg:  0 12px 24px -6px rgba(15, 23, 42, 0.10), 0 4px 10px -4px rgba(15, 23, 42, 0.06);
+  --shadow-xl:  0 24px 48px -10px rgba(15, 23, 42, 0.14), 0 8px 16px -6px rgba(15, 23, 42, 0.08);
+
+  /* Glass-specific Shadows (VisionOS feeling) */
+  --shadow-glass:       0 8px 32px 0 rgba(15, 23, 42, 0.10), inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+  --shadow-glass-hover: 0 12px 40px 0 rgba(15, 23, 42, 0.14), inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+  --shadow-glass-inset: inset 0 1px 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 1px 0 rgba(15, 23, 42, 0.04);
+
+  /* Focus Ring */
+  --shadow-focus-ring: 0 0 0 3px rgba(16, 185, 129, 0.35);
+
+  /* Colored / Brand Glow Shadows */
+  --shadow-glow-primary: 0 8px 24px -4px rgba(5, 150, 105, 0.35);
+  --shadow-glow-purple:  0 8px 24px -4px rgba(147, 51, 234, 0.30);
+}
+
+:root[data-theme="dark"] {
+  --shadow-xs:  0 1px 2px 0 rgba(0, 0, 0, 0.30);
+  --shadow-sm:  0 1px 3px 0 rgba(0, 0, 0, 0.35), 0 1px 2px -1px rgba(0, 0, 0, 0.25);
+  --shadow-md:  0 4px 12px -2px rgba(0, 0, 0, 0.40), 0 2px 6px -2px rgba(0, 0, 0, 0.30);
+  --shadow-lg:  0 12px 24px -6px rgba(0, 0, 0, 0.45), 0 4px 10px -4px rgba(0, 0, 0, 0.30);
+  --shadow-xl:  0 24px 48px -10px rgba(0, 0, 0, 0.55), 0 8px 16px -6px rgba(0, 0, 0, 0.35);
+
+  --shadow-glass:       0 8px 32px 0 rgba(0, 0, 0, 0.35), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+  --shadow-glass-hover: 0 12px 40px 0 rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  --shadow-glass-inset: inset 0 1px 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* ==================================================================
+   5. BLUR SYSTEM (Glass Morphism)
+   ------------------------------------------------------------------
+   يُستخدم دائماً مع backdrop-filter. مقياس مسمّى وليس أرقام عشوائية.
+   يجب استخدامه دائماً مع -webkit-backdrop-filter لدعم Safari/iOS.
+   ================================================================== */
+
+:root {
+  --glass-blur-sm: blur(8px);
+  --glass-blur:    blur(16px);   /* الافتراضي لمعظم البطاقات */
+  --glass-blur-lg: blur(24px);
+  --glass-blur-xl: blur(40px);   /* شرائح كبيرة / خلفيات هيرو */
+
+  --glass-saturate: saturate(180%);
+
+  /* مركّب جاهز للاستخدام المباشر في المكونات: */
+  /* backdrop-filter: var(--glass-blur) var(--glass-saturate); */
+}
+
+
+/* ==================================================================
+   6. SPACING SYSTEM
+   ------------------------------------------------------------------
+   مقياس مبني على 4px كوحدة أساسية (base unit). الاسم يعكس
+   "الخطوة" (step) وليس القيمة بالبكسل، حتى لو غيّرنا القيمة
+   الأساسية مستقبلاً لا يتغير اسم المتغير في أي مكون.
+   ================================================================== */
+
+:root {
+  --space-unit: 0.25rem; /* 4px */
+
+  --space-0:  0;
+  --space-1:  0.25rem;  /* 4px  */
+  --space-2:  0.5rem;   /* 8px  */
+  --space-3:  0.75rem;  /* 12px */
+  --space-4:  1rem;     /* 16px */
+  --space-5:  1.25rem;  /* 20px */
+  --space-6:  1.5rem;   /* 24px */
+  --space-7:  1.75rem;  /* 28px */
+  --space-8:  2rem;     /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* Semantic spacing (استخدام مباشر في السياقات الشائعة) */
+  --space-section-gap: var(--space-16);
+  --space-card-padding: var(--space-6);
+  --space-page-gutter:  var(--space-6);
+  --space-stack-gap:    var(--space-4);
+}
+
+/* ==================================================================
+   7. RESPONSIVE BREAKPOINTS
+   ------------------------------------------------------------------
+   أسماء وليست أرقام متناثرة في الكود. هذه القيم لا يمكن استخدامها
+   مباشرة داخل @media بصيغة var() (قيود CSS)، لذلك هي معرّفة هنا
+   كمرجع موثّق + مكرّرة كـ SCSS-like constants عبر ملف
+   breakpoints.ts في مجلد tokens (يُستخدم في JS/TS وفي Tailwind
+   config)، حتى يبقى المصدر الوحيد للحقيقة موحّداً بين CSS و JS.
+
+   Mobile:      0    -> 639px
+   Tablet:      640  -> 1023px
+   Desktop:     1024 -> 1439px
+   Wide:        1440 -> 1919px
+   UltraWide:   1920px+
+   ================================================================== */
+
+:root {
+  /* توثيق فقط (مرجعي) - القيم الفعلية تُدار عبر tokens/breakpoints.ts */
+  --breakpoint-mobile:    "0px";
+  --breakpoint-tablet:    "640px";
+  --breakpoint-desktop:   "1024px";
+  --breakpoint-wide:      "1440px";
+  --breakpoint-ultrawide: "1920px";
+}
+
+/* ==================================================================
+   8. MOTION / EASING SYSTEM
+   ------------------------------------------------------------------
+   منحنيات حركة ناعمة (Apple-like) بدلاً من ease الافتراضي.
+   ================================================================== */
+
+:root {
+  --duration-instant: 100ms;
+  --duration-fast:    180ms;
+  --duration-base:    250ms;
+  --duration-slow:    400ms;
+  --duration-slower:  600ms;
+
+  --ease-standard:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
+  --ease-spring:     cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Z-Index Scale (مسمّى لتفادي حرب الـ z-index) */
+  --z-base:      0;
+  --z-dropdown:  100;
+  --z-sticky:    200;
+  --z-overlay:   300;
+  --z-modal:     400;
+  --z-popover:   500;
+  --z-toast:     600;
+  --z-tooltip:   700;
+}
+
+/* ==================================================================
+   نهاية ملف Design Tokens
+   أي إضافة مستقبلية يجب أن تمر عبر نفس النمط: primitive -> semantic
+   ================================================================== */

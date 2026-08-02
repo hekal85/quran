@@ -1,0 +1,23 @@
+/* ==================================================================
+   Global Stylesheet - منصة القرآن الكريم العالمية
+   ------------------------------------------------------------------
+   الترتيب مهم:
+   1. Tailwind أولاً (يشمل الـ Preflight/Reset)
+   2. design tokens بتاعتنا (تبقى فوق أي شيء تاني)
+   ================================================================== */
+
+@import "tailwindcss";
+@import "../js/design/styles/variables.css";
+
+/* Base resets تعتمد على الـ tokens مش على قيم مباشرة */
+html {
+  direction: var(--direction-current, ltr);
+}
+
+body {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-current);
+  transition: background-color var(--duration-base) var(--ease-standard),
+              color var(--duration-base) var(--ease-standard);
+}

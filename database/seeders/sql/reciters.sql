@@ -1,0 +1,35 @@
+-- ============================================
+-- 30 قارئ مصري من أشهر القراء (قدامى ومعاصرين)
+-- ============================================
+INSERT INTO reciters (name_arabic, name_english, name_transliteration, biography, country, birth_date, death_date, is_active, rating, created_at, updated_at) VALUES
+
+("محمد رفعت", "Mohammad Rifaat", "Mohammad Rifaat", "أحد أعظم قراء القرآن في التاريخ، ولد في 1882 وتوفي 1950، تميز بصوته الخاشع وأسلوبه الفريد", "Egypt", "1882-05-09", "1950-05-09", 0, 100, NOW(), NOW()),
+("عبد الفتاح الشعشاعي", "Abdul Fattah Ash-Shaashai", "Abdul Fattah Ash-Shaashai", "قارئ مصري ولد 1908 وتوفي 1962، من رواد القراءة في الإذاعة المصرية", "Egypt", "1908-02-15", "1962-02-15", 0, 95, NOW(), NOW()),
+("محمد سلامة", "Mohammad Salamah", "Mohammad Salamah", "قارئ مصري ولد 1899 وتوفي 1982، تميز بالقراءة المجودة", "Egypt", "1899-01-01", "1982-01-01", 0, 90, NOW(), NOW()),
+("عبد الباسط عبد الصمد", "Abdul Basit Abdul Samad", "Abdul Basit", "قارئ مصري ولد 1927 وتوفي 1988، صاحب الصوت الذهبي والأسلوب الفريد في الترتيل", "Egypt", "1927-01-01", "1988-11-30", 0, 100, NOW(), NOW()),
+("مصطفى إسماعيل", "Mustafa Ismail", "Mustafa Ismail", "قارئ مصري ولد 1905 وتوفي 1978، من عمالقة القراءة في مصر والعالم الإسلامي", "Egypt", "1905-01-01", "1978-01-01", 0, 98, NOW(), NOW()),
+("محمد صديق المنشاوي", "Mohammad Siddiq Al-Minshawi", "Mohammad Al-Minshawi", "قارئ مصري ولد 1920 وتوفي 1969، صاحب الصوت الباكي والمؤثر", "Egypt", "1920-01-01", "1969-01-01", 0, 100, NOW(), NOW()),
+("محمود خليل الحصري", "Mahmoud Khalil Al-Husary", "Mahmoud Al-Husary", "قارئ مصري ولد 1917 وتوفي 1980، من أشهر القراء وأتقنهم للتجويد", "Egypt", "1917-01-01", "1980-01-01", 0, 99, NOW(), NOW()),
+("محمد محمود الطبلاوي", "Mohammad Mahmoud At-Tablaway", "Mohammad At-Tablaway", "قارئ مصري ولد 1934 وتوفي 2020، من أشهر القراء في العصر الحديث", "Egypt", "1934-01-01", "2020-01-01", 0, 96, NOW(), NOW()),
+("أحمد نعينع", "Ahmed Nuaynah", "Ahmed Nuaynah", "قارئ مصري ولد 1938، من القراء المجيدين في الإذاعة المصرية", "Egypt", "1938-01-01", NULL, 1, 92, NOW(), NOW()),
+("سيد النقشبندي", "Sayed An-Naqshabandi", "Sayed An-Naqshabandi", "قارئ مصري ولد 1920 وتوفي 1976، صاحب الصوت العذب والأسلوب المميز", "Egypt", "1920-01-01", "1976-01-01", 0, 94, NOW(), NOW()),
+("محمد جبريل", "Mohammad Jibreel", "Mohammad Jibreel", "قارئ مصري ولد 1952، من أشهر قراء الإذاعة المصرية حالياً", "Egypt", "1952-01-01", NULL, 1, 90, NOW(), NOW()),
+("أحمد عامر", "Ahmed Amer", "Ahmed Amer", "قارئ مصري ولد 1960، يتميز بالقراءة المجودة والصوت الجميل", "Egypt", "1960-01-01", NULL, 1, 88, NOW(), NOW()),
+("خالد الجليل", "Khaled Al-Jaleel", "Khaled Al-Jaleel", "قارئ مصري معاصر، من تلاميذ المدرسة المصرية في التلاوة", "Egypt", "1970-01-01", NULL, 1, 85, NOW(), NOW()),
+("محمد عبد العزيز حسان", "Mohammad Abdul Aziz Hassan", "Mohammad Hassan", "قارئ مصري يتميز بالقراءة المرتلة والمجودة", "Egypt", "1975-01-01", NULL, 1, 84, NOW(), NOW()),
+("ياسر الدوسري", "Yasser Ad-Dosari", "Yasser Ad-Dosari", "قارئ مصري معاصر من أصل سعودي، إمام الحرم المكي سابقاً", "Egypt", "1980-01-01", NULL, 1, 95, NOW(), NOW()),
+("علي أحمد النحاس", "Ali Ahmed An-Nahhas", "Ali An-Nahhas", "قارئ مصري شاب، يتميز بالصوت الجميل والأداء المتقن", "Egypt", "1990-01-01", NULL, 1, 80, NOW(), NOW()),
+("محمد بحيري", "Mohammad Bahiri", "Mohammad Bahiri", "قارئ مصري شاب، له حضور قوي في الإذاعة والتلفزيون", "Egypt", "1992-01-01", NULL, 1, 82, NOW(), NOW()),
+("أحمد الصغير", "Ahmed As-Saghir", "Ahmed As-Saghir", "قارئ مصري شاب، يتميز بالقراءة المجودة والتأثر", "Egypt", "1995-01-01", NULL, 1, 78, NOW(), NOW()),
+("عبد العزيز سليم", "Abdul Aziz Saleem", "Abdul Aziz Saleem", "قارئ مصري من الجيل القديم، له بصمة في الإذاعة", "Egypt", "1910-01-01", "1980-01-01", 0, 88, NOW(), NOW()),
+("عبد الحليم بسيوني", "Abdul Halim Basyouni", "Abdul Halim Basyouni", "قارئ مصري رائد من رواد الإذاعة المصرية", "Egypt", "1900-01-01", "1985-01-01", 0, 87, NOW(), NOW()),
+("إبراهيم الفارس", "Ibrahim Al-Fares", "Ibrahim Al-Fares", "قارئ مصري قديم، له تسجيلات نادرة", "Egypt", "1895-01-01", "1970-01-01", 0, 85, NOW(), NOW()),
+("علي محمود", "Ali Mahmoud", "Ali Mahmoud", "قارئ مصري من الجيل الأول للقراء في الإذاعة", "Egypt", "1902-01-01", "1980-01-01", 0, 86, NOW(), NOW()),
+("محمد الشحات أنور", "Mohammad Ash-Shaahat Anwar", "Mohammad Anwar", "قارئ مصري معاصر، يتميز بالقراءة المجودة", "Egypt", "1965-01-01", NULL, 1, 87, NOW(), NOW()),
+("أحمد عبد العزيز", "Ahmed Abdul Aziz", "Ahmed Abdul Aziz", "قارئ مصري له تسجيلات كثيرة في الإذاعة", "Egypt", "1970-01-01", NULL, 1, 83, NOW(), NOW()),
+("خالد عبد القادر", "Khaled Abdul Qadir", "Khaled Abdul Qadir", "قارئ مصري يتميز بالصوت النقي والأداء السليم", "Egypt", "1985-01-01", NULL, 1, 79, NOW(), NOW()),
+("محمود الشيمي", "Mahmoud Ash-Shimi", "Mahmoud Ash-Shimi", "قارئ مصري شاب، من تلاميذ مدرسة الحصري", "Egypt", "1993-01-01", NULL, 1, 76, NOW(), NOW()),
+("أحمد عادل", "Ahmed Adel", "Ahmed Adel", "قارئ مصري معاصر له حضور قوي على الإنترنت", "Egypt", "1998-01-01", NULL, 1, 75, NOW(), NOW()),
+("يوسف المنشاوي", "Yusuf Al-Minshawi", "Yusuf Al-Minshawi", "قارئ مصري من عائلة المنشاوي، ابن الشيخ محمد صديق", "Egypt", "1950-01-01", NULL, 1, 89, NOW(), NOW()),
+("عبد الرحمن الشافعي", "Abdul Rahman Ash-Shafii", "Abdul Rahman Ash-Shafii", "قارئ مصري له تسجيلات نادرة ومتميزة", "Egypt", "1945-01-01", NULL, 1, 86, NOW(), NOW()),
+("طه الفشني", "Taha Al-Fashni", "Taha Al-Fashni", "قارئ مصري قديم، من رواد التجويد في مصر", "Egypt", "1900-01-01", "1970-01-01", 0, 84, NOW(), NOW());
